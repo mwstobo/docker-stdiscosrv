@@ -1,7 +1,7 @@
 FROM alpine:3.6
 
 ARG buildhost=https://build.syncthing.net/job/stdiscosrv/lastSuccessfulBuild/artifact
-ARG version=v0.14.34-rc.1+1-g54155cb
+ARG version=v0.14.36
 ARG tar_filename=stdiscosrv-linux-amd64-${version}.tar.gz
 
 ENV STDISCOSRV_ROOT=/opt/stdiscosrv
