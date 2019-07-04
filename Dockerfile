@@ -1,7 +1,7 @@
 FROM alpine:3.6
 
-ARG buildhost=https://build.syncthing.net/job/stdiscosrv/lastSuccessfulBuild/artifact
-ARG version=v0.14.36
+ARG version=v1.0.1
+ARG buildhost=https://github.com/syncthing/discosrv/releases/download/${version}
 ARG tar_filename=stdiscosrv-linux-amd64-${version}.tar.gz
 
 ENV STDISCOSRV_ROOT=/opt/stdiscosrv
@@ -24,6 +24,7 @@ RUN apk update \
 
 WORKDIR $STDISCOSRV_ROOT
 CMD ["stdiscosrv", \
+       "-db-dir=/opt/stdiscosrv/data/discovery.db", \
        "-cert=/opt/stdiscosrv/data/cert.pem", \
        "-key=/opt/stdiscosrv/data/key.pem"]
 
